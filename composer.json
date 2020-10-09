@@ -1,0 +1,19 @@
+{
+    "name": "Leonid-SLV/mysql2pdo",
+    "description": "Old mysql functions surrounded by newer PHP versions",
+    "require": {}
+    "minimum-stability": "stable",
+    "license": "GPL-3.0",
+    "authors": [
+	    {
+	    	"name": "Leonid Selvistrovich",
+	    	"email": "crack-it@yandex.com"
+		},
+        {
+            "name": "Jaroslav Herber"
+        }
+    ],
+    "autoload": {
+        "files": ["mysql2pdo.php"]
+    }
+}
