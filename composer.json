@@ -1,5 +1,5 @@
 {
-    "name": "Leonid-SLV/mysql2pdo",
+	"name": "leonid-slv/mysql2pdo",
     "description": "Old mysql functions surrounded by newer PHP versions",
     "require": {},
     "minimum-stability": "stable",
