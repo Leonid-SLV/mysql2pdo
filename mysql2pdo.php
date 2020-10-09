@@ -1,6 +1,7 @@
 <?php
 /*
 php-mysql2pdo
+ver 1.1
 
 authors: Leonid Selvistrovich, Jaroslav Herber
 */
@@ -193,20 +194,20 @@ if( PHP_MAJOR_VERSION >= 7 ) {
 	  {
 	    //$rRes->execute();
 
-	    $array_rRes = json_decode(json_encode($rRes),true); //Ñîõðàíÿåì äàííûå ïîäêëþ÷åíèÿ
-		$query_rRes = mb_strtolower($array_rRes['queryString']); //Èçâëåêàåì çàïðîñ
+	    $array_rRes = json_decode(json_encode($rRes),true); //Ð¡Ð¾Ñ…Ñ€Ð°Ð½ÑÐµÐ¼ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ñ
+		$query_rRes = mb_strtolower($array_rRes['queryString']); //Ð˜Ð·Ð²Ð»ÐµÐºÐ°ÐµÐ¼ Ð·Ð°Ð¿Ñ€Ð¾Ñ
 	    if ($GLOBALS['mysql_cache_query']==$query_rRes)
 	      {
-	        //echo '!Çàïðîñ êåøèðîâàí!';
+	        //echo '!Ð—Ð°Ð¿Ñ€Ð¾Ñ ÐºÐµÑˆÐ¸Ñ€Ð¾Ð²Ð°Ð½!';
 	        $aRow = $GLOBALS['mysql_cache_aRow'];
 	      }
 	      else
 	      {
 	        $rRes->execute();
 	        $aRow = $rRes->fetchAll(PDO::FETCH_NUM);
-	        //Ïàò÷ îò 23.05.2020. Èäåÿ çàêëþ÷àåòñÿ â òîì, ÷òî åñòü ñìûñë êåøèðîâàòü çàïðîñû ñ áîëüøèì êîë-âîì ñòðîê íà âûõîäå
-	        //è äåðæàòü òàêîé êåø. Ïðîéäóò áîëåå ìàëåíüêèå çàïðîñû, à â êåøå òîò áîëüøîé çàïðîñ îñòàíåòñÿ. Ïðè âûçîâå åãî, îí áóäåò.
-	        //Òàêîé ñïîñîá ïîçâîëèë óñêîðèòü ðàáîòó íà 25%, â îòëè÷èè îò êåøèðîâàíèÿ ïðåäûäóùåãî çàïðîñà.
+	        //ÐŸÐ°Ñ‚Ñ‡ Ð¾Ñ‚ 23.05.2020. Ð˜Ð´ÐµÑ Ð·Ð°ÐºÐ»ÑŽÑ‡Ð°ÐµÑ‚ÑÑ Ð² Ñ‚Ð¾Ð¼, Ñ‡Ñ‚Ð¾ ÐµÑÑ‚ÑŒ ÑÐ¼Ñ‹ÑÐ» ÐºÐµÑˆÐ¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð·Ð°Ð¿Ñ€Ð¾ÑÑ‹ Ñ Ð±Ð¾Ð»ÑŒÑˆÐ¸Ð¼ ÐºÐ¾Ð»-Ð²Ð¾Ð¼ ÑÑ‚Ñ€Ð¾Ðº Ð½Ð° Ð²Ñ‹Ñ…Ð¾Ð´Ðµ
+	        //Ð¸ Ð´ÐµÑ€Ð¶Ð°Ñ‚ÑŒ Ñ‚Ð°ÐºÐ¾Ð¹ ÐºÐµÑˆ. ÐŸÑ€Ð¾Ð¹Ð´ÑƒÑ‚ Ð±Ð¾Ð»ÐµÐµ Ð¼Ð°Ð»ÐµÐ½ÑŒÐºÐ¸Ðµ Ð·Ð°Ð¿Ñ€Ð¾ÑÑ‹, Ð° Ð² ÐºÐµÑˆÐµ Ñ‚Ð¾Ñ‚ Ð±Ð¾Ð»ÑŒÑˆÐ¾Ð¹ Ð·Ð°Ð¿Ñ€Ð¾Ñ Ð¾ÑÑ‚Ð°Ð½ÐµÑ‚ÑÑ. ÐŸÑ€Ð¸ Ð²Ñ‹Ð·Ð¾Ð²Ðµ ÐµÐ³Ð¾, Ð¾Ð½ Ð±ÑƒÐ´ÐµÑ‚.
+	        //Ð¢Ð°ÐºÐ¾Ð¹ ÑÐ¿Ð¾ÑÐ¾Ð± Ð¿Ð¾Ð·Ð²Ð¾Ð»Ð¸Ð» ÑƒÑÐºÐ¾Ñ€Ð¸Ñ‚ÑŒ Ñ€Ð°Ð±Ð¾Ñ‚Ñƒ Ð½Ð° 25%, Ð² Ð¾Ñ‚Ð»Ð¸Ñ‡Ð¸Ð¸ Ð¾Ñ‚ ÐºÐµÑˆÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ Ð¿Ñ€ÐµÐ´Ñ‹Ð´ÑƒÑ‰ÐµÐ³Ð¾ Ð·Ð°Ð¿Ñ€Ð¾ÑÐ°.
 	        if (($rRes->rowCount())>1)
 	          {
 	            $GLOBALS['mysql_cache_aRow'] = $aRow;
@@ -217,9 +218,9 @@ if( PHP_MAJOR_VERSION >= 7 ) {
 
 	    if( 1==1 ) {
 
-			//$array_rRes = json_decode(json_encode($rRes),true); //Ñîõðàíÿåì äàííûå ïîäêëþ÷åíèÿ
-			//$query_rRes = mb_strtolower($array_rRes['queryString']); //Èçâëåêàåì çàïðîñ
-			$select_rRes = substr($query_rRes, strpos($query_rRes,'select')+6, strpos($query_rRes,'from')-6-strpos($query_rRes,'select')); //Âûäåëÿåì çàïðàøèâàåììûå ïîëÿ
+			//$array_rRes = json_decode(json_encode($rRes),true); //Ð¡Ð¾Ñ…Ñ€Ð°Ð½ÑÐµÐ¼ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ñ
+			//$query_rRes = mb_strtolower($array_rRes['queryString']); //Ð˜Ð·Ð²Ð»ÐµÐºÐ°ÐµÐ¼ Ð·Ð°Ð¿Ñ€Ð¾Ñ
+			$select_rRes = substr($query_rRes, strpos($query_rRes,'select')+6, strpos($query_rRes,'from')-6-strpos($query_rRes,'select')); //Ð’Ñ‹Ð´ÐµÐ»ÑÐµÐ¼ Ð·Ð°Ð¿Ñ€Ð°ÑˆÐ¸Ð²Ð°ÐµÐ¼Ð¼Ñ‹Ðµ Ð¿Ð¾Ð»Ñ
 			$select_rRes = str_replace('`','',$select_rRes);
 			$select_rRes = str_replace(' ','',$select_rRes);
 			$array_select_rRes = explode(',',$select_rRes);
@@ -229,7 +230,7 @@ if( PHP_MAJOR_VERSION >= 7 ) {
 			    $i_selRes = 0;
 			    while ($i_selRes <= count($array_select_rRes)-1)
 			      {
-			        //PATCH îò 17.01.2020 | Êîððåêòèðîâêà çíà÷åíèé, â ñëó÷àå åñëè â çàïðîñå óêàçàíî ÒÀÁËÈÖÀ.ÑÒÎËÁÅÖ, à çíà÷åíèå ïðîñòî ÑÒÎËÁÅÖ.
+			        //PATCH Ð¾Ñ‚ 17.01.2020 | ÐšÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð¸Ñ€Ð¾Ð²ÐºÐ° Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ð¹, Ð² ÑÐ»ÑƒÑ‡Ð°Ðµ ÐµÑÐ»Ð¸ Ð² Ð·Ð°Ð¿Ñ€Ð¾ÑÐµ ÑƒÐºÐ°Ð·Ð°Ð½Ð¾ Ð¢ÐÐ‘Ð›Ð˜Ð¦Ð.Ð¡Ð¢ÐžÐ›Ð‘Ð•Ð¦, Ð° Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¿Ñ€Ð¾ÑÑ‚Ð¾ Ð¡Ð¢ÐžÐ›Ð‘Ð•Ð¦.
 			        if ((strpos($array_select_rRes[$i_selRes],'.')===FALSE & strpos($mField,'.')!==FALSE) OR (strpos($array_select_rRes[$i_selRes],'.')!==FALSE & strpos($mField,'.')===FALSE))
 			          {
 			            if (strpos($array_select_rRes[$i_selRes],'.')!==FALSE)
