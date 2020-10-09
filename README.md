@@ -44,7 +44,7 @@ About:
 =========================
 If you run into any issues, bugs, features or make things better please send them to me and I will get them in as soon as I can.
 
-    @authors   Slevistrovich Leonid <crack-it@yandex.com>, Jaroslav Herber
+    @authors   Selvistrovich Leonid <crack-it@yandex.com>, Jaroslav Herber
     @copyright GPL license
     @license   http://www.gnu.org/copyleft/gpl.html
     @link      https://github.com/Leonid-SLV/
