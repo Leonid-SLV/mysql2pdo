@@ -9,6 +9,7 @@ It is important to note that there is support for encryption SSL certificate.
 Lost connection:
 ---------------
 In most cases, everything is fine! But it happens when the settings of the PDO driver are strange, for example, this was found in the cloud Yandex Function. To avoid this, just at the end of the code, insert
+
 	//Close all connections for fast restart
 	mysql_close();
 
