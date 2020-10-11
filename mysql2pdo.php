@@ -340,10 +340,11 @@ if( PHP_MAJOR_VERSION >= 7 ) {
 		return true;
 	}
 
-	function mysql_close( $rRes ) {
-		// No need for closing connection
-		return true;
-	}
+	function mysql_close($temp='')
+	  {
+	    $GLOBALS['mysql_connections'] = null;
+	    return true;
+	  }
 
 }
 
