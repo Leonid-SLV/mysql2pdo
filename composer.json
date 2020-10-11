@@ -2,7 +2,7 @@
 	"name": "leonid-slv/mysql2pdo",
     "description": "Old mysql functions surrounded by newer PHP versions",
     "require": {},
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "license": "GPL-3.0",
     "authors": [
 	    {
