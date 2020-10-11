@@ -35,16 +35,19 @@ class jhDb {
 
 
 	public static function getDb( $sDbName ) {
-
-		if( $sDbName ) {
-
-			if( !isset(self::$_aCachedDbs[$sDbName]) ) {
-				self::$_aCachedDbs[$sDbName] = self::createConnection($sDbName);
-			}
-
-			return self::$_aCachedDbs[$sDbName];
-
-		}
+		if( $sDbName )
+		  {
+		    return self::createConnection($sDbName);
+		  }
+//		if( $sDbName ) {
+//
+//			if( !isset(self::$_aCachedDbs[$sDbName]) ) {
+//				self::$_aCachedDbs[$sDbName] = self::createConnection($sDbName);
+//			}
+//
+//			return self::$_aCachedDbs[$sDbName];
+//
+//		}
 
 	}
 
