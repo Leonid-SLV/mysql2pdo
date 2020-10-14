@@ -345,6 +345,7 @@ if( PHP_MAJOR_VERSION >= 7 ) {
 
 	function mysql_close($temp='')
 	  {
+	    $GLOBALS['mysql_cache_query'] = '';
 	    $GLOBALS['mysql_connections'] = null;
 	    return true;
 	  }

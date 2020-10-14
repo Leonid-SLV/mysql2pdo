@@ -6,6 +6,22 @@ The librarie duplicates all popular of the functionality of mysql_* functions. V
 
 It is important to note that there is support for encryption SSL certificate.
 
+	PHP 7 mysql_connect
+	PHP 7 mysql_select_db
+	PHP 7 mysql_real_escape_string
+	PHP 7 mysql_query
+	PHP 7 mysql_result
+	PHP 7 mysql_insert_id
+	PHP 7 mysql_fetch_array
+	PHP 7 mysql_fetch_assoc
+	PHP 7 mysql_fetch_row
+	PHP 7 mysql_num_rows
+	PHP 7 mysql_set_charset
+	PHP 7 mysql_error
+	PHP 7 mysql_errno
+	PHP 7 mysql_free_result
+	PHP 7 mysql_close
+
 Lost connection:
 ---------------
 In most cases, everything is fine! But it happens when the settings of the PDO driver are strange, for example, this was found in the cloud Yandex Function. To avoid this, just at the end of the code, insert
